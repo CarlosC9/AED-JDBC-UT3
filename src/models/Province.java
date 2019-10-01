@@ -18,6 +18,26 @@ public class Province {
         this.idComunidadAutonoma=1;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurface(double surface) {
+        this.surface = surface;
+    }
+
+    public void setPoblacion(int poblacion) {
+        this.poblacion = poblacion;
+    }
+
+    public void setCodigoPostalCapital(String codigoPostalCapital) {
+        this.codigoPostalCapital = codigoPostalCapital;
+    }
+
     public String getId() {
         return id;
     }

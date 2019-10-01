@@ -12,7 +12,6 @@ public class ConnectionDatabase {
         DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         String urlDatabase = "jdbc:mysql://localhost:3306/geografia?useTimezone=true&serverTimezone=CET";
         this.connector = DriverManager.getConnection(urlDatabase, "root", "elrincon1920");
-        this.connector.setAutoCommit(false);
     }
     
     public Connection getConexion() {
