@@ -9,7 +9,7 @@ public class ConnectionDatabase {
     private Connection connector;
     
     public ConnectionDatabase() throws SQLException {
-        DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
+        //DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         String urlDatabase = "jdbc:mysql://localhost:3306/geografia?useTimezone=true&serverTimezone=CET";
         this.connector = DriverManager.getConnection(urlDatabase, "root", "elrincon1920");
         this.connector.setAutoCommit(false);
