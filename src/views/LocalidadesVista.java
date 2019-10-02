@@ -221,38 +221,6 @@ public class LocalidadesVista extends javax.swing.JDialog {
         this.jFormattedTextFieldPoblacion = jFormattedTextFieldPoblacion;
     }
 
-    public JLabel getjLabel2() {
-        return jLabelCodigoPostal;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabelCodigoPostal = jLabel2;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabelNombre;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabelNombre = jLabel3;
-    }
-
-    public JLabel getjLabel4() {
-        return jLabelPoblacion;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabelPoblacion = jLabel4;
-    }
-
-    public JLabel getjLabelTitulo() {
-        return jLabelTitulo;
-    }
-
-    public void setjLabelTitulo(JLabel jLabelTitulo) {
-        this.jLabelTitulo = jLabelTitulo;
-    }
-
     public JTextField getjTextField1Nombre() {
         return jTextField1Nombre;
     }
@@ -260,4 +228,6 @@ public class LocalidadesVista extends javax.swing.JDialog {
     public void setjTextField1Nombre(JTextField jTextField1Nombre) {
         this.jTextField1Nombre = jTextField1Nombre;
     }
+
+    
 }
