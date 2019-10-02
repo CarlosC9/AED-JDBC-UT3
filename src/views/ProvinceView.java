@@ -19,6 +19,7 @@ public class ProvinceView extends javax.swing.JDialog {
     public ProvinceView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setVisible(true);
     }
 
     /**
