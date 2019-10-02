@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import models.Localidad;
+import models.Province;
 
 public class LocalidadDAO {
     
@@ -17,11 +18,11 @@ public class LocalidadDAO {
         
     }
     
-    public ResultSet getAllLocalidades() throws SQLException {
+    public ResultSet getAllLocalidadesDependigProvince(Province province) throws SQLException {
         ResultSet rs = null;
         
         Statement stmt = this.conector.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        rs = stmt.executeQuery("select * from localidades");
+        rs = stmt.executeQuery("select * from localidades where" + province.getId());
         
         return rs;
     }
@@ -38,6 +39,30 @@ public class LocalidadDAO {
             throw new SQLException();
         }
         
+    }
+    
+    public void modifyLocalidad(Localidad localidad) throws SQLException {
+        
+        String sql = "update localidades set nombre = '" + localidad.getNombre() + 
+                "', poblacion = " + localidad.getPoblacion() + " where " + 
+                "codigo_postal = '" + localidad.getCodigoPostal();
+        
+        int numChanges = this.executeSQLUpdate(sql);
+        
+        if (numChanges < 1) {
+            throw new SQLException();
+        }
+    }
+    
+    public void deleteLocalidad(Localidad localidad) throws SQLException {
+        String sql = "delete from localidades where coddigo_postal = '" + 
+                localidad.getCodigoPostal() + "'";
+        
+        int numChanges = this.executeSQLUpdate(sql);
+        
+        if (numChanges < 1) {
+            throw new SQLException();
+        }
     }
     
     private int executeSQLUpdate(String sql) throws SQLException {
