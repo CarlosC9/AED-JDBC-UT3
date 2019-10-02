@@ -22,9 +22,9 @@ public class MainView extends javax.swing.JFrame {
      * Creates new form MainView
      */
     public MainView() {
-        this.setVisible(true);
         initComponents();
-        this.setBounds(0, 0, 1000, 1000);
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
     }
 
     /**
@@ -47,6 +47,7 @@ public class MainView extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1000, 1000));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

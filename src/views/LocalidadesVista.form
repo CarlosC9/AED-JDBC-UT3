@@ -26,10 +26,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="52" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="jButtonContinuar" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelTitulo" min="-2" pref="203" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="jLabelTitulo" alignment="0" min="-2" pref="203" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -47,10 +44,11 @@
                           </Group>
                           <Component id="jFormattedTextFieldPoblacion" alignment="0" max="32767" attributes="0"/>
                           <Component id="jTextField1Nombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jButtonContinuar" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
