@@ -33,10 +33,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabel4" alignment="0" pref="78" max="32767" attributes="0"/>
-                              <Component id="jLabel3" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLabelPoblacion" alignment="0" pref="78" max="32767" attributes="0"/>
+                              <Component id="jLabelNombre" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCodigoPostal" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -60,20 +60,22 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabelTitulo" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jFormattedTextFieldCodigoPostal" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jFormattedTextFieldIdProvincia" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jFormattedTextFieldCodigoPostal" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="jLabelCodigoPostal" alignment="3" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel3" min="-2" pref="26" max="-2" attributes="0"/>
+                  <Component id="jLabelNombre" min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jTextField1Nombre" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jFormattedTextFieldPoblacion" alignment="3" pref="27" max="32767" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jLabelPoblacion" alignment="3" min="-2" pref="21" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButtonContinuar" min="-2" pref="26" max="-2" attributes="0"/>
@@ -88,7 +90,7 @@
         <Property name="text" type="java.lang.String" value="Inserte los datos de la localidad"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jLabelCodigoPostal">
       <Properties>
         <Property name="text" type="java.lang.String" value="C&#xf3;digo postal"/>
       </Properties>
@@ -100,7 +102,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCodigoPostal">
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jLabelNombre">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
@@ -110,7 +112,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1NombreActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jLabelPoblacion">
       <Properties>
         <Property name="text" type="java.lang.String" value="Poblaci&#xf3;n"/>
       </Properties>

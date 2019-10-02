@@ -38,12 +38,12 @@ public class LocalidadesVista extends javax.swing.JDialog {
     private void initComponents() {
 
         jLabelTitulo = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelCodigoPostal = new javax.swing.JLabel();
         jFormattedTextFieldIdProvincia = new javax.swing.JFormattedTextField();
         jFormattedTextFieldCodigoPostal = new javax.swing.JFormattedTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLabelNombre = new javax.swing.JLabel();
         jTextField1Nombre = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelPoblacion = new javax.swing.JLabel();
         jFormattedTextFieldPoblacion = new javax.swing.JFormattedTextField();
         jButtonContinuar = new javax.swing.JButton();
 
@@ -51,11 +51,11 @@ public class LocalidadesVista extends javax.swing.JDialog {
 
         jLabelTitulo.setText("Inserte los datos de la localidad");
 
-        jLabel2.setText("Código postal");
+        jLabelCodigoPostal.setText("Código postal");
 
         jFormattedTextFieldIdProvincia.setEditable(false);
 
-        jLabel3.setText("Nombre");
+        jLabelNombre.setText("Nombre");
 
         jTextField1Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,7 +63,7 @@ public class LocalidadesVista extends javax.swing.JDialog {
             }
         });
 
-        jLabel4.setText("Población");
+        jLabelPoblacion.setText("Población");
 
         jFormattedTextFieldPoblacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,9 +86,9 @@ public class LocalidadesVista extends javax.swing.JDialog {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel2))
+                                .addComponent(jLabelPoblacion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                                .addComponent(jLabelNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabelCodigoPostal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -105,18 +105,19 @@ public class LocalidadesVista extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jLabelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextFieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jFormattedTextFieldIdProvincia)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jFormattedTextFieldCodigoPostal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelCodigoPostal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jFormattedTextFieldPoblacion, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonContinuar, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -181,9 +182,9 @@ public class LocalidadesVista extends javax.swing.JDialog {
     private javax.swing.JFormattedTextField jFormattedTextFieldCodigoPostal;
     private javax.swing.JFormattedTextField jFormattedTextFieldIdProvincia;
     private javax.swing.JFormattedTextField jFormattedTextFieldPoblacion;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelCodigoPostal;
+    private javax.swing.JLabel jLabelNombre;
+    private javax.swing.JLabel jLabelPoblacion;
     private javax.swing.JLabel jLabelTitulo;
     private javax.swing.JTextField jTextField1Nombre;
     // End of variables declaration//GEN-END:variables
@@ -221,27 +222,27 @@ public class LocalidadesVista extends javax.swing.JDialog {
     }
 
     public JLabel getjLabel2() {
-        return jLabel2;
+        return jLabelCodigoPostal;
     }
 
     public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
+        this.jLabelCodigoPostal = jLabel2;
     }
 
     public JLabel getjLabel3() {
-        return jLabel3;
+        return jLabelNombre;
     }
 
     public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
+        this.jLabelNombre = jLabel3;
     }
 
     public JLabel getjLabel4() {
-        return jLabel4;
+        return jLabelPoblacion;
     }
 
     public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
+        this.jLabelPoblacion = jLabel4;
     }
 
     public JLabel getjLabelTitulo() {
