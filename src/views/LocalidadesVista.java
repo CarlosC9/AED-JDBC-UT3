@@ -7,7 +7,6 @@ package views;
 
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
