@@ -1,32 +1,71 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package views;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextField;
 
-/**
- *
- * @author AlumnadoTarde
- */
+
 public class LocalidadesVista extends javax.swing.JDialog {
 
-    /**
-     * Creates new form NewJDialog
-     */
+    public final static int PARAMETER_IDPROVINCE = 1;
+    public final static int PARAMETER_POSTAL_CODE = 2;
+    private boolean okButton;
+    private LocalidadesVista myModal;
+    
     public LocalidadesVista(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
+        okButton = false;
+        this.myModal = this;
         initComponents();
+        
+        this.jButtonContinuar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+               myModal.setVisible(false);
+               okButton = true;
+               myModal.dispose();
+            }
+        });
+        
         this.setVisible(true);
     }
 
-    public LocalidadesVista() {
-        
+    public boolean isOkButton() {
+        return okButton;
     }
+    
+    public LocalidadesVista(java.awt.Frame parent, boolean modal, String parameter, int typeParameter) {
+        super(parent, modal);
+        
+        okButton = false;
+        this.myModal = this;
+        initComponents();
+        
+        this.jButtonContinuar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent arg0) {
+               myModal.setVisible(false);
+               okButton = true;
+               myModal.dispose();
+            }
+        });
+        
+        switch (typeParameter) {
+            case PARAMETER_IDPROVINCE:
+                this.jFormattedTextFieldIdProvincia.setText(parameter);
+                break;
+            case PARAMETER_POSTAL_CODE:
+                this.jFormattedTextFieldIdProvincia.setText(parameter.substring(0, 2));
+                this.jFormattedTextFieldCodigoPostal.setText(parameter.substring(2, 5));
+                this.jFormattedTextFieldCodigoPostal.setEditable(false);
+                break;
+        }
+        this.setVisible(true);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,45 +175,7 @@ public class LocalidadesVista extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LocalidadesVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LocalidadesVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LocalidadesVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LocalidadesVista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                LocalidadesVista dialog = new LocalidadesVista(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonContinuar;

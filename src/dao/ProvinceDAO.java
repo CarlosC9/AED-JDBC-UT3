@@ -59,7 +59,7 @@ public class ProvinceDAO {
         ResultSet rs = null;
         
         Statement stmt = this.conector.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        rs = stmt.executeQuery("select * from provincias");
+        rs = stmt.executeQuery("select id_provincia,nombre,poblacion,codigo_postal_capital from provincias where id_CA = 1");
         
         return rs;
     }

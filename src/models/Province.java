@@ -18,6 +18,9 @@ public class Province {
         this.idComunidadAutonoma=1;
     }
 
+    public Province() {
+    }
+
     public void setId(String id) {
         this.id = id;
     }

@@ -16,6 +16,11 @@ public class Localidad {
         this.idProvincia = idProvincia;
     }
 
+    public Localidad() {
+    }
+    
+    
+
     public String getCodigoPostal() {
         return codigoPostal;
     }

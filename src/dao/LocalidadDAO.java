@@ -22,7 +22,8 @@ public class LocalidadDAO {
         ResultSet rs = null;
         
         Statement stmt = this.conector.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        rs = stmt.executeQuery("select * from localidades where" + province.getId());
+        rs = stmt.executeQuery("select codigo_postal,nombre,poblacion from "
+                + "localidades where id_provincia = '" + province.getId() + "'");
         
         return rs;
     }
@@ -45,7 +46,7 @@ public class LocalidadDAO {
         
         String sql = "update localidades set nombre = '" + localidad.getNombre() + 
                 "', poblacion = " + localidad.getPoblacion() + " where " + 
-                "codigo_postal = '" + localidad.getCodigoPostal();
+                "codigo_postal = '" + localidad.getCodigoPostal() + "'";
         
         int numChanges = this.executeSQLUpdate(sql);
         
@@ -55,7 +56,7 @@ public class LocalidadDAO {
     }
     
     public void deleteLocalidad(Localidad localidad) throws SQLException {
-        String sql = "delete from localidades where coddigo_postal = '" + 
+        String sql = "delete from localidades where codigo_postal = '" + 
                 localidad.getCodigoPostal() + "'";
         
         int numChanges = this.executeSQLUpdate(sql);
