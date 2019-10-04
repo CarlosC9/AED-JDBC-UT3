@@ -22,6 +22,7 @@ public class VistaPrincipal extends JFrame{
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         
+        this.setTitle("COMUNIDAD AUTÓNOMA DE EXTREMADURA");
         
         setTable();
         setButton();

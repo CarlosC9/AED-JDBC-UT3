@@ -6,6 +6,8 @@ import dao.LocalidadDAO;
 import dao.ProvinceDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -101,38 +103,58 @@ public class MainController {
             @Override
             public void mouseClicked(MouseEvent e) {
                 
-                JTable tabla = vistaPrincipal.getjTable2();
-                
-                int fila = tabla.getSelectedRow();
-                
-                String idProvince = String.valueOf(vistaPrincipal.getjTable1().getValueAt(vistaPrincipal.getjTable1().getSelectedRow(), 0));
-                String postalCode = String.valueOf(tabla.getValueAt(fila, 0));
-                
-                System.out.println(idProvince);
-                
-                
-                for (ActionListener action : vistaPrincipal.getjButton3().getActionListeners()) {
-                    vistaPrincipal.getjButton3().removeActionListener(action);
-                }
-                
-                for (ActionListener action : vistaPrincipal.getjButton4().getActionListeners()) {
-                    vistaPrincipal.getjButton4().removeActionListener(action);
-                }
-                
-                vistaPrincipal.getjButton3().addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent arg0) {
-                        LocalidadesVista localidadVista = new LocalidadesVista(vistaPrincipal,true,postalCode, LocalidadesVista.PARAMETER_POSTAL_CODE);
-                        
-                        if (localidadVista.isOkButton()) {
+                    JTable tabla = vistaPrincipal.getjTable2();
+
+                    int fila = tabla.getSelectedRow();
+
+                    String idProvince = String.valueOf(vistaPrincipal.getjTable1().getValueAt(vistaPrincipal.getjTable1().getSelectedRow(), 0));
+                    String postalCode = String.valueOf(tabla.getValueAt(fila, 0));
+
+                    System.out.println(idProvince);
+
+
+                    for (ActionListener action : vistaPrincipal.getjButton3().getActionListeners()) {
+                        vistaPrincipal.getjButton3().removeActionListener(action);
+                    }
+
+                    for (ActionListener action : vistaPrincipal.getjButton4().getActionListeners()) {
+                        vistaPrincipal.getjButton4().removeActionListener(action);
+                    }
+
+                    vistaPrincipal.getjButton3().addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent arg0) {
+                            LocalidadesVista localidadVista = new LocalidadesVista(vistaPrincipal,true,postalCode, LocalidadesVista.PARAMETER_POSTAL_CODE);
+
+                            if (localidadVista.isOkButton()) {
+                                Localidad localidad = new Localidad();
+                                localidad.setCodigoPostal(localidadVista.getjFormattedTextFieldIdProvincia().getText() 
+                                        + localidadVista.getjFormattedTextFieldCodigoPostal().getText());
+                                localidad.setNombre(localidadVista.getjTextField1Nombre().getText());
+                                localidad.setPoblacion(Integer.parseInt(localidadVista.getjFormattedTextFieldPoblacion().getText()));
+
+                                try {
+                                    localidadDao.modifyLocalidad(localidad);
+                                    Province province = new Province();
+                                    province.setId(idProvince);
+                                    ResultSet rs = localidadDao.getAllLocalidadesDependigProvince(province);
+                                    VistaTabla model = new VistaTabla(rs,VistaTabla.LOCALIDAD);
+                                    vistaPrincipal.getjTable2().setModel(model);
+                                } catch (SQLException ex) {
+                                    Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                            }
+                        }
+                    });
+
+                    vistaPrincipal.getjButton4().addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent arg0) {
                             Localidad localidad = new Localidad();
-                            localidad.setCodigoPostal(localidadVista.getjFormattedTextFieldIdProvincia().getText() 
-                                    + localidadVista.getjFormattedTextFieldCodigoPostal().getText());
-                            localidad.setNombre(localidadVista.getjTextField1Nombre().getText());
-                            localidad.setPoblacion(Integer.parseInt(localidadVista.getjFormattedTextFieldPoblacion().getText()));
-                            
+                            localidad.setCodigoPostal(postalCode);
+
                             try {
-                                localidadDao.modifyLocalidad(localidad);
+                                localidadDao.deleteLocalidad(localidad);
                                 Province province = new Province();
                                 province.setId(idProvince);
                                 ResultSet rs = localidadDao.getAllLocalidadesDependigProvince(province);
@@ -142,29 +164,10 @@ public class MainController {
                                 Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
                             }
                         }
-                    }
-                });
+                    });
                 
-                vistaPrincipal.getjButton4().addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent arg0) {
-                        Localidad localidad = new Localidad();
-                        localidad.setCodigoPostal(postalCode);
-                        
-                        try {
-                            localidadDao.deleteLocalidad(localidad);
-                            Province province = new Province();
-                            province.setId(idProvince);
-                            ResultSet rs = localidadDao.getAllLocalidadesDependigProvince(province);
-                            VistaTabla model = new VistaTabla(rs,VistaTabla.LOCALIDAD);
-                            vistaPrincipal.getjTable2().setModel(model);
-                        } catch (SQLException ex) {
-                            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    }
-                });
                 
-            }
+                }
         });
         
         this.vistaPrincipal.getjButton2().addActionListener(new ActionListener() {
